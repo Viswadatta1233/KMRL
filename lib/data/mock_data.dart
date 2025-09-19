@@ -53,18 +53,22 @@ class MockData {
             .subtract(Duration(days: index * 2))
             .toIso8601String(),
         repairNotes: index % 5 == 0 ? 'Minor brake adjustment needed' : null,
+        // Additional sensor data for AI predictions
+        vibrationLevel: 2.1 + (index * 0.1),
+        brakeWearPercentage: 15.0 + (index * 2.5),
+        hvacEfficiency: 85.0 + (index * 1.2),
+        doorCycleCount: 15000 + (index * 500),
+        wheelWear: 8.0 + (index * 0.8),
       );
     }).toList();
   }
 
   static TrainStatus _getRandomStatus(int index) {
-    final statuses = [
-      TrainStatus.service,
-      TrainStatus.standby,
-      TrainStatus.cleaning,
-      TrainStatus.repair,
-    ];
-    return statuses[index % statuses.length];
+    // Redistribute: 14 in Service, 3 in Repair, 5 in Cleaning, 3 in Standby
+    if (index < 14) return TrainStatus.service;
+    if (index < 17) return TrainStatus.repair;
+    if (index < 22) return TrainStatus.cleaning;
+    return TrainStatus.standby;
   }
 
   static JobCardStatus _getRandomJobCardStatus(int index) {

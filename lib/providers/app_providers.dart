@@ -194,11 +194,6 @@ class SparePartsNotifier extends StateNotifier<List<SparePartRequest>> {
 // Final induction list provider
 final finalInductionListProvider = Provider<List<Train>>((ref) {
   final trains = ref.watch(trainsProvider);
-  return trains
-      .where(
-        (train) =>
-            train.status == TrainStatus.service ||
-            train.status == TrainStatus.standby,
-      )
-      .toList();
+  // Return all trains so the FinalInductionList widget can categorize them properly
+  return trains;
 });

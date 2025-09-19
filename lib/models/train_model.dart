@@ -16,6 +16,12 @@ class Train {
   final double temperature;
   final String lastMaintenanceDate;
   final String? repairNotes;
+  // Additional sensor data for AI predictions
+  final double vibrationLevel;
+  final double brakeWearPercentage;
+  final double hvacEfficiency;
+  final int doorCycleCount;
+  final double wheelWear;
 
   Train({
     required this.name,
@@ -29,6 +35,11 @@ class Train {
     required this.temperature,
     required this.lastMaintenanceDate,
     this.repairNotes,
+    required this.vibrationLevel,
+    required this.brakeWearPercentage,
+    required this.hvacEfficiency,
+    required this.doorCycleCount,
+    required this.wheelWear,
   });
 
   Train copyWith({
@@ -43,6 +54,11 @@ class Train {
     double? temperature,
     String? lastMaintenanceDate,
     String? repairNotes,
+    double? vibrationLevel,
+    double? brakeWearPercentage,
+    double? hvacEfficiency,
+    int? doorCycleCount,
+    double? wheelWear,
   }) {
     return Train(
       name: name ?? this.name,
@@ -56,6 +72,11 @@ class Train {
       temperature: temperature ?? this.temperature,
       lastMaintenanceDate: lastMaintenanceDate ?? this.lastMaintenanceDate,
       repairNotes: repairNotes ?? this.repairNotes,
+      vibrationLevel: vibrationLevel ?? this.vibrationLevel,
+      brakeWearPercentage: brakeWearPercentage ?? this.brakeWearPercentage,
+      hvacEfficiency: hvacEfficiency ?? this.hvacEfficiency,
+      doorCycleCount: doorCycleCount ?? this.doorCycleCount,
+      wheelWear: wheelWear ?? this.wheelWear,
     );
   }
 }

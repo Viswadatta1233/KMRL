@@ -102,33 +102,33 @@ class MaintenanceConfirmation extends ConsumerWidget {
               style: const TextStyle(color: Colors.grey, fontSize: 12),
             ),
             const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    onPressed: () => _approveUpdate(context, ref, update),
-                    icon: const Icon(Icons.check, size: 16),
-                    label: const Text('Approve'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      foregroundColor: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton.icon(
-                    onPressed: () => _rejectUpdate(context, ref, update),
-                    icon: const Icon(Icons.close, size: 16),
-                    label: const Text('Reject'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: ElevatedButton.icon(
+            //         onPressed: () => _approveUpdate(context, ref, update),
+            //         icon: const Icon(Icons.check, size: 16),
+            //         label: const Text('Approve'),
+            //         style: ElevatedButton.styleFrom(
+            //           backgroundColor: Colors.green,
+            //           foregroundColor: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //     const SizedBox(width: 8),
+            //     Expanded(
+            //       child: ElevatedButton.icon(
+            //         onPressed: () => _rejectUpdate(context, ref, update),
+            //         icon: const Icon(Icons.close, size: 16),
+            //         label: const Text('Reject'),
+            //         style: ElevatedButton.styleFrom(
+            //           backgroundColor: Colors.red,
+            //           foregroundColor: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),
