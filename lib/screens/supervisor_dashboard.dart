@@ -140,12 +140,9 @@ class _SupervisorDashboardState extends ConsumerState<SupervisorDashboard> {
                   indicatorColor: Colors.white,
                   isScrollable: true,
                   tabs: [
-                    Tab(icon: Icon(Icons.verified), text: 'AI Certificates'),
-                    Tab(icon: Icon(Icons.build), text: 'AI Validation'),
-                    Tab(
-                      icon: Icon(Icons.check_circle),
-                      text: 'AI Confirmation',
-                    ),
+                    Tab(icon: Icon(Icons.verified), text: 'Certificates'),
+                    Tab(icon: Icon(Icons.build), text: 'Validation'),
+                    Tab(icon: Icon(Icons.check_circle), text: 'Confirmation'),
                     Tab(icon: Icon(Icons.psychology), text: 'AI Induction'),
                   ],
                 ),

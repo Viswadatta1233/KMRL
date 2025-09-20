@@ -296,6 +296,10 @@ class _OCCDashboardState extends ConsumerState<OCCDashboard> {
                       TrainStatusGrid(trains: trains),
                       const SizedBox(height: 20),
 
+                      // Enhanced AI-Powered Induction List
+                      FinalInductionList(trains: finalInductionList),
+                      const SizedBox(height: 20),
+
                       // AI Predictive Analytics
                       Container(
                         padding: const EdgeInsets.all(20),
