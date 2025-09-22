@@ -105,67 +105,71 @@ class _BrandingRuleFormState extends ConsumerState<BrandingRuleForm> {
   }
 
   Widget _buildSimpleTrainCard(Train train) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundColor: AppTheme.getStatusColor(train.status),
-              radius: 20,
-              child: Text(
-                train.name[0],
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
+  return Card(
+    margin: const EdgeInsets.only(bottom: 8),
+    child: Padding(
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            backgroundColor: AppTheme.getStatusColor(train.status),
+            radius: 20,
+            child: Text(
+              train.name[0],
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  train.name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                  overflow: TextOverflow.ellipsis, // avoids overflow
                 ),
-              ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    train.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                const SizedBox(height: 4),
+                Text(
+                  'Mileage: ${train.mileage} km',
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 8),
+                Wrap( // ✅ Wrap instead of Row to avoid overflow
+                  spacing: 8,
+                  runSpacing: 4,
+                  children: [
+                    _buildSimpleChip(
+                      'Branding',
+                      train.isBrandingAvailable
+                          ? 'Available'
+                          : 'Not Available',
+                      train.isBrandingAvailable ? Colors.green : Colors.red,
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Mileage: ${train.mileage} km',
-                    style: const TextStyle(fontSize: 12, color: Colors.grey),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      _buildSimpleChip(
-                        'Branding',
-                        train.isBrandingAvailable
-                            ? 'Available'
-                            : 'Not Available',
-                        train.isBrandingAvailable ? Colors.green : Colors.red,
-                      ),
-                      const SizedBox(width: 8),
-                      _buildSimpleChip(
-                        'Repair',
-                        train.hasRepairIssues ? 'Required' : 'OK',
-                        train.hasRepairIssues ? Colors.red : Colors.green,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    _buildSimpleChip(
+                      'Repair',
+                      train.hasRepairIssues ? 'Required' : 'OK',
+                      train.hasRepairIssues ? Colors.red : Colors.green,
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildSimpleChip(String label, String value, Color color) {
     return Container(
